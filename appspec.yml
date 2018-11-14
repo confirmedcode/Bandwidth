@@ -1,0 +1,35 @@
+version: 0.0
+os: linux 
+files:
+  - source: code
+    destination: /home/ubuntu/bandwidth
+permissions:
+  - object: /home/ubuntu
+    pattern: "bandwidth"
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - directory
+  - object: /home/ubuntu/bandwidth
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - file
+  - object: /home/ubuntu/bandwidth
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - directory
+hooks:
+  BeforeInstall:
+    - location: scripts/clear-existing.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/npm-install.sh
+      timeout: 300
+      runas: ubuntu
+  ValidateService:
+    - location: scripts/restart-codedeploy.sh
+      timeout: 300
+      runas: root

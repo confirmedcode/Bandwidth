@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing modules...
+      - npm install --global mocha
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - cd code
+      - npm install
+  build:
+    commands:
+      - echo Build started
+      - echo Running tests...
+      - echo "Ignoring tests for now"
+      - echo npm test
+  post_build:
+    commands:
+      - echo Build completed
+artifacts:
+  files:
+    - '**/*'
