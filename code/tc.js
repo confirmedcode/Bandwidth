@@ -168,7 +168,7 @@ module.exports = {
    * @param {number} rate - Kilobits per second of the reate limit
    */
   throttle(clientIp, clientPort, clientVirtualIp, rate) {
-    logger.info(`Throttling ${clientIp} at ${rate} kbps`)
+    logger.info(`Throttling client at ${rate} kbps`)
     const clientNumber = getClientNumber(clientVirtualIp)
     addClass(clientNumber, rate)
     addIpFilter(clientIp, clientPort, clientNumber)
