@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ipaddr.js": "^1.8.1",
+    "ipaddr.js": "^1.9.1",
     "log-driver": "^1.2.7"
   },
   "devDependencies": {
